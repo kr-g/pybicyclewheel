@@ -4,13 +4,13 @@
 
 ## release v0.0.4
 
-- fixed degree and rand - 2nd attempt :-/
+- fixed degree and rad - 2nd attempt :-/
 - 
 
 
 ## release v0.0.3
 
-- fixed degree and rand 
+- fixed degree and rad 
 - 
 
 
