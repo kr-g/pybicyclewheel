@@ -4,6 +4,7 @@ import numpy as np
 class Flange(object):
     def __init__(self, holes, diameter, distance, spoke_hole):
         self.holes = holes
+        self.holes_per_side = self.holes / 2
         self.diameter = diameter  # pitch hole circle, not flange height
         self.distance = distance  # distance from the center
         self.spoke_hole = spoke_hole
@@ -15,7 +16,7 @@ class Flange(object):
 
     def recalc(self):
         self.radius = self.diameter / 2.0
-        self.hole_alpha = 360 / self.holes
+        self.hole_alpha = 360 / self.holes_per_side
         self.top_hole = np.array([0, self.radius, self.distance])
 
     def vec(self, cross=3):

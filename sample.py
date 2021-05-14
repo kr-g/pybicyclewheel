@@ -9,7 +9,7 @@ from pybicyclewheel.wheel import Wheel
 # your data here
 
 rim_idx = 3  # a719_3
-hub_idx = 7  # deore_t610_36
+hub_idx = 5  # deore_t610_36
 
 cross = 3
 spoke = 2.0
