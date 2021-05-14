@@ -1,6 +1,12 @@
 
 # changelog
 
+## release v0.0.3
+
+- fixed degree and rand 
+- 
+
+
 ## release v0.0.2 
 
 - fixed holes per flange side

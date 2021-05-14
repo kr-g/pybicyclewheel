@@ -1,3 +1,4 @@
+import math
 import numpy as np
 
 
@@ -15,7 +16,8 @@ class Flange(object):
 
     def recalc(self):
         self.radius = self.diameter / 2.0
-        self.hole_alpha = 360 / self.holes
+        self.hole_alpha = math.pi / self.holes
+        self.hole_alpha_deg = 360 / self.holes
         self.top_hole = np.array([0, self.radius, self.distance])
 
     def vec(self, cross=3):

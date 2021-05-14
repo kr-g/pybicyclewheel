@@ -8,8 +8,8 @@ from pybicyclewheel.wheel import Wheel
 
 # your data here
 
-rim_idx = 3  # a719_3
-hub_idx = 5  # deore_t610_36
+rim_idx = 8 # 3  # a719_3
+hub_idx = 10 # 5  # deore_t610_36
 
 cross = 3
 spoke = 2.0
@@ -56,5 +56,5 @@ wheel = Wheel(hub=hub, rim=rim, cross_l=cross_l, cross_r=cross_r, spoke=spoke)
 print("spoke length (left, right) mm", wheel.spoke_lr())
 print("rim", rim)
 print("hub", hub)
-print("wheel", wheel)
+#print("wheel", wheel)
 print("---", time.asctime(time.localtime(time.time())), "---")

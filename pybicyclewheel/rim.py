@@ -1,3 +1,4 @@
+import math
 import numpy as np
 
 
@@ -6,7 +7,8 @@ class Rim(object):
         self.erd = erd
         self.radius = erd / 2.0
         self.holes = holes
-        self.hole_alpha = 360 / self.holes
+        self.hole_alpha = math.pi / self.holes
+        self.hole_alpha_deg = 360 / self.holes
 
     def __repr__(self):
         return str(self.__dict__)
