@@ -11,5 +11,5 @@ share/
 *.egg-info
 pyvenv.cfg
 
-*.hpf
+.~lock.*.xls#
 
