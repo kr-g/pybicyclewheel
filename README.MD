@@ -6,8 +6,6 @@
 
 `pybicyclewheel` calulates the required spoke length for bicycle wheels.
 
-THIS IS NOT YET RELEASED ON PYPI !!!
-
 THE CALCULATION IS NOT YET TESTED !!!
 USE AT YOUR OWN RISK.
 
@@ -59,10 +57,6 @@ for latest, or upcoming news.
 
 
 # installation
-
-THIS IS NOT YET RELEASED ON PYPI !!!
-
-later use:
 
 available on pypi. install with:
 
