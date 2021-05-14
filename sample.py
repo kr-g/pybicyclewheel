@@ -54,4 +54,6 @@ hub = Hub(
 wheel = Wheel(hub=hub, rim=rim, cross_l=cross_l, cross_r=cross_r, spoke=spoke)
 
 print("spoke length (left, right) mm", wheel.spoke_lr())
+print("rim", rim)
+print("hub", hub)
 print("---", time.asctime(time.localtime(time.time())), "---")
