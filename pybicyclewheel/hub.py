@@ -15,8 +15,7 @@ class Flange(object):
 
     def recalc(self):
         self.radius = self.diameter / 2.0
-        self.holes_per_side = self.holes / 2
-        self.hole_alpha = 360 / self.holes_per_side
+        self.hole_alpha = 360 / self.holes
         self.top_hole = np.array([0, self.radius, self.distance])
 
     def vec(self, cross=3):
@@ -49,8 +48,20 @@ class Hub(object):
         distance_r=21.75,
         spoke_hole=2.8,
     ):
-        self.left = Flange(holes, diameter_l, distance_l, spoke_hole)
-        self.right = Flange(holes, diameter_r, distance_r, spoke_hole)
+        self.holes = holes
+        self.holes_per_side = self.holes / 2
+        self.left = Flange(
+            holes=self.holes_per_side,
+            diameter=diameter_l,
+            distance=distance_l,
+            spoke_hole=spoke_hole,
+        )
+        self.right = Flange(
+            holes=self.holes_per_side,
+            diameter=diameter_r,
+            distance=distance_r,
+            spoke_hole=spoke_hole,
+        )
 
     def __repr__(self):
         return str(self.__dict__)
