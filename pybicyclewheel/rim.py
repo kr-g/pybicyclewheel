@@ -2,9 +2,11 @@ import numpy as np
 
 
 class Rim(object):
-    def __init__(self, erd=598):
+    def __init__(self, erd=598, holes=36):
         self.erd = erd
         self.radius = erd / 2.0
+        self.holes = holes
+        self.hole_alpha = 360 / self.holes
 
     def __repr__(self):
         return str(self.__dict__)
