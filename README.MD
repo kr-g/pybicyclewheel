@@ -35,6 +35,10 @@ and use the classes directly (less convinient).
 
 probably a better user interface will be provided later ... (if i have time i will do)
 
+## structure of the xls - measurement factors
+
+todo...
+
 
 # What's new ?
 
