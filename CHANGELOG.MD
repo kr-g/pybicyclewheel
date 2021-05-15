@@ -2,6 +2,12 @@
 # changelog
 
 
+## next release v0.0.5
+
+- xls_calc module
+- 
+
+
 ## release v0.0.4
 
 - fixed degree and rad - 2nd attempt :-/

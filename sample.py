@@ -1,10 +1,6 @@
 import time
 
-from pybicyclewheel.dataloader import RimDataLoader, HubDataLoader
-
-from pybicyclewheel.rim import Rim
-from pybicyclewheel.hub import Hub
-from pybicyclewheel.wheel import Wheel
+from pybicyclewheel.xls_calc import wheel_calc
 
 # your data here
 
@@ -19,41 +15,22 @@ spoke = 2.0
 cross_l = cross
 cross_r = cross
 
-# calc
+# wheel_calc - new in v0.0.5
 
-rdl = RimDataLoader("./rims.xls").load_xls()
+spoke_lr, wheel, rim_dims, rim_info, hub_dims, hub_info = wheel_calc(rim_idx, hub_idx)
 
-xls_off = -2
+rim = wheel.rim
+hub = wheel.hub
 
-rim_dims = rdl.get_dims(rim_idx + xls_off)
 print("rim", rim_dims)
-print("rim", rdl.get_row(rim_idx + xls_off))
+print("rim", rim_info)
 print()
 
-hdl = HubDataLoader("./hubs.xls").load_xls()
-
-hub_dims = hdl.get_dims(hub_idx + xls_off)
 print("hub", hub_dims)
-print("hub", hdl.get_row(hub_idx + xls_off))
+print("hub", hub_info)
 print()
 
-if rim_dims.holes != hub_dims.holes:
-    raise Exception("holes different")
-
-rim = Rim(rim_dims.erd)
-
-hub = Hub(
-    hub_dims.holes,
-    diameter_l=hub_dims.flange_diameter_left,
-    diameter_r=hub_dims.flange_diameter_right,
-    distance_l=-hub_dims.flange_distance_left,
-    distance_r=hub_dims.flange_distance_right,
-    spoke_hole=hub_dims.spoke_hole,
-)
-
-wheel = Wheel(hub=hub, rim=rim, cross_l=cross_l, cross_r=cross_r, spoke=spoke)
-
-print("spoke length (left, right) mm", wheel.spoke_lr())
+print("spoke length (left, right) mm", spoke_lr)
 print("rim", rim)
 print("hub", hub)
 # print("wheel", wheel)
