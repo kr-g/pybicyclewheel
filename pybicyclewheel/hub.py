@@ -37,6 +37,8 @@ class Flange(object):
             ]
         )
 
+        # rotate the top hole to get the position
+        # by multiply top_hole with rot_z matrix
         return self.top_hole @ rot_z
 
 
