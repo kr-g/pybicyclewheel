@@ -9,19 +9,13 @@
 
 # further readings
 
-[bicycle wheels](https://en.wikipedia.org/wiki/Wheelbuilding)
+wikipedia
+- [bicycle wheels](https://en.wikipedia.org/wiki/Wheelbuilding)
+- [spoke length](https://en.wikipedia.org/wiki/Spoke#Spoke_length)
 
-[spoke length](https://en.wikipedia.org/wiki/Spoke#Spoke_length)
-
-
-english tech doc:
-
-[sheldon brown](https://www.sheldonbrown.com/spoke-length.html)
-
-
-german tech doc:
-
-[christian smolik](http://www.smolik-velotech.de/laufrad/06einsp.htm#Ermittlung%20der%20Speichenl%C3%A4ngen)
+bicycle guru doc
+- [sheldon brown](https://www.sheldonbrown.com/spoke-length.html)
+- [christian smolik](http://www.smolik-velotech.de/laufrad/06einsp.htm#Ermittlung%20der%20Speichenl%C3%A4ngen)
 
 
 # how to use
