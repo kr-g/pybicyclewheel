@@ -4,7 +4,7 @@ from pybicyclewheel.xls_calc import wheel_calc
 
 # your data here - the index is the line number in the xls sheet
 
-rim_idx = 3  # a719_3
+rim_idx = 3  # a719_36
 hub_idx = 5  # deore_t610_36
 
 cross = 3
