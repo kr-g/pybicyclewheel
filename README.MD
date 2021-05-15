@@ -17,6 +17,13 @@ bicycle guru doc
 - [sheldon brown](https://www.sheldonbrown.com/spoke-length.html)
 - [christian smolik](http://www.smolik-velotech.de/laufrad/06einsp.htm#Ermittlung%20der%20Speichenl%C3%A4ngen)
 
+## remark
+
+the calculation methods mentioned above differ sligthly from each other by putting e.g. spoke hole, or spoke radius
+into consideration or not. 
+the provided method within this module uses a mathematic 3d geometric vector and matrix base approach
+to determine the length of a spoke using numpy. 
+
 
 # how to use
 
