@@ -2,7 +2,7 @@ import time
 
 from pybicyclewheel.xls_calc import wheel_calc
 
-# your data here
+# your data here - the index is the line number in the xls sheet
 
 rim_idx = 3  # a719_3
 hub_idx = 5  # deore_t610_36
