@@ -30,6 +30,9 @@ to determine the length of a spoke using numpy.
 maintain your rim and hub data in the xls sheets provided in the github repo
 and use it along with [`sample.py`](https://github.com/kr-g/pybicyclewheel/blob/main/sample.py).
 
+alternatively explore [`xls_calc.py`](https://github.com/kr-g/pybicyclewheel/blob/main/pybicyclewheel/xls_calc.py)
+and use the classes directly (less convinient).
+
 probably a better user interface will be provided later ... (if i have time i will do)
 
 
