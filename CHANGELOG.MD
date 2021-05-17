@@ -2,7 +2,7 @@
 # changelog
 
 
-## next release v0.0.5
+## release v0.0.5
 
 - xls_calc module
 - 
