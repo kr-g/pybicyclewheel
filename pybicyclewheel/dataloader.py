@@ -37,10 +37,24 @@ class DataLoader(object):
         return result
 
 
+common_data = [
+    "Manufacturer",
+    "Model",
+    "Year",
+    "EAN",
+]
+
+
+def combined_cols(cols):
+    c = list(common_data)
+    c.extend(cols)
+    return c
+
+
 class RimDataLoader(DataLoader):
     def get_dims(self, idx):
         row = self.get_row(idx)
-        return self.get_cols(row, ["Holes", "ERD"])
+        return self.get_cols(row, combined_cols(["Holes", "ERD"]))
 
 
 class HubDataLoader(DataLoader):
@@ -48,12 +62,14 @@ class HubDataLoader(DataLoader):
         row = self.get_row(idx)
         return self.get_cols(
             row,
-            [
-                "Holes",
-                "Spoke Hole",
-                "Flange Diameter Left",
-                "Flange Diameter Right",
-                "Flange Distance Left",
-                "Flange Distance Right",
-            ],
+            combined_cols(
+                [
+                    "Holes",
+                    "Spoke Hole",
+                    "Flange Diameter Left",
+                    "Flange Diameter Right",
+                    "Flange Distance Left",
+                    "Flange Distance Right",
+                ]
+            ),
         )
