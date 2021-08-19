@@ -314,7 +314,13 @@ class TileEntrySpinbox(TileEntry):
 
         vars = super().create_element(frame)
 
+        self._values = list(self.pref("values", []))
+        mf = self.pref("map_value", lambda x: f"{x} > {x}")
+        self._map_values = list(map(mf, self._values))
+
         _spin_opts = self.pref("spin_opts", {})
+        _spin_opts["values"] = self._map_values
+
         self._spinb.config(**_spin_opts)
 
         return vars
@@ -329,7 +335,10 @@ class TileEntrySpinbox(TileEntry):
         self.pref("on_change", self.on_change)()
 
     def on_change(self):
-        print(self.__class__.__name__, "on_change", self.get_val())
+        print(self.__class__.__name__, "on_change", self.get_index(), self.get_val())
+
+    def get_index(self):
+        return self._map_values.index(self.get_val())
 
     def get_val(self):
         return self._spinb.get()

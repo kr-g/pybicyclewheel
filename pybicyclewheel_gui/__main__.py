@@ -1,7 +1,7 @@
 from pybicyclewheel.xls_calc import *
 from pybicyclewheel_gui import *
 
-from tile import *
+from pybicyclewheel_gui.tile import *
 
 """
 
@@ -44,9 +44,7 @@ t_tab = TileTab(
             TileRows(
                 source=[
                     t_1,
-                    TileEntrySpinbox(
-                        caption="turn me", spin_opts={"values": [1, 2, 3, 4, 5, 6]}
-                    ),
+                    TileEntrySpinbox(caption="turn me", values=[1, 2, 3, 4, 5, 6]),
                 ]
             ),
         ),
@@ -75,7 +73,11 @@ t_tab = TileTab(
             TileRows(
                 source=[
                     t_hub_file,
-                    TileEntryCombo(caption="whatever", values=[11, 21, 31, 41]),
+                    TileEntryCombo(
+                        caption="whatever",
+                        values=[11, 21, 31, 41],
+                        map_value=lambda x: "item: " + str(x),
+                    ),
                 ]
             ),
         ),
