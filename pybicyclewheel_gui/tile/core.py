@@ -420,4 +420,20 @@ class TileTab(Tile):
             self._elem.append(el)
             self._tab.add(el.frame, text=caption)
 
+            self._tab_sel = 0
+
+        self._tab.bind("<<NotebookTabChanged>>", self._handler)
         return self._tab
+
+    def _handler(self, event):
+        cur = self.get_index()
+        if cur == self._tab_sel:
+            return
+        self._tab_sel = cur
+        self.pref("on_change", self.on_change)()
+
+    def on_change(self):
+        print(self.__class__.__name__, "on_change", self.get_index())
+
+    def get_index(self):
+        return self._tab.index(self._tab.select())
