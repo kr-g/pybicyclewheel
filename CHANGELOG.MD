@@ -1,7 +1,7 @@
 
 # changelog
 
-## next release v0.0.6
+## release v0.0.6
 
 - added EAN col to xls, and dataloader
 - added simple rapid prototyping gui framework "pyTile"
