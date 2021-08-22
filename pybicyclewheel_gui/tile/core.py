@@ -1,5 +1,6 @@
 import os
 
+
 from tkinter import *
 from tkinter import Tk, ttk, filedialog
 
@@ -132,6 +133,22 @@ class TileLabel(Tile):
         return self._lbl
 
 
+class TileLabelClick(TileLabel):
+    def create_element(self, frame):
+        lbl = super().create_element(frame)
+        lbl.config(foreground="blue")
+        lbl.config(cursor="hand1")
+        lbl.bind("<Button-1>", self._handler)
+        return lbl
+
+    def _handler(self, event):
+        print("_handler")
+        self.pref("on_click", self.on_click)()
+
+    def on_click(self):
+        print(self.__class__.__name__, "on_click")
+
+
 class TileButton(Tile):
     def create_element(self, frame):
         self._button = ttk.Button(
@@ -204,8 +221,6 @@ class TileEntryButton(TileEntry):
 
     def _handler(self):
         self.pref("on_click", self.on_click)()
-        self.on_click()
-        # return 'break'
 
     def on_click(self):
         print(self.__class__.__name__, "on_click", self.get_val())

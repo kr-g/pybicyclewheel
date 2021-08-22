@@ -5,6 +5,8 @@ from pybicyclewheel_gui.tile import *
 
 from tkinter import messagebox
 
+import webbrowser
+
 """
 
 simple gui for pybicyclewheel
@@ -218,7 +220,21 @@ mainframe = Tile(Tile.tk)
 
 t_close = TileLabelButton(caption="close app", command=mainframe.quit)
 
-main = TileRows(source=[t_close, t_reload, t_tab])
+
+def openweb():
+    webbrowser.open("https://github.com/kr-g/pybicyclewheel")
+
+
+main = TileRows(
+    source=[
+        t_close,
+        t_reload,
+        t_tab,
+        TileLabelClick(
+            caption="github: https://github.com/kr-g/pybicyclewheel", on_click=openweb
+        ),
+    ]
+)
 
 mainframe.add(main)
 mainframe.layout()
