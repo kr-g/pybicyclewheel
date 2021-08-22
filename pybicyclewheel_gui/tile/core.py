@@ -52,6 +52,12 @@ class Tile(TkMixin):
                 self.parent_frame(),
             )
 
+    def __end__tile__(self):
+        # todo rename this ...
+        for f in self._frame:
+            f.forget()
+        self._frame = []
+
     def parent_frame(self):
         return self._parent.frame if type(self._parent) == Tile else self._parent
 
@@ -83,6 +89,7 @@ class Tile(TkMixin):
         pass
 
     def layout(self):
+        self.__end__tile__()
         self._build()
         self.do_layout()
 
@@ -197,6 +204,8 @@ class TileEntryButton(TileEntry):
 
     def _handler(self):
         self.pref("on_click", self.on_click)()
+        self.on_click()
+        # return 'break'
 
     def on_click(self):
         print(self.__class__.__name__, "on_click", self.get_val())
@@ -208,9 +217,15 @@ class TileEntryCombo(TileEntry):
         vars = super().create_element(frame)
 
         self._values = list(self.pref("values", []))
-        mf = self.pref("map_value", lambda x: f"{x} > {x}")
+
+        mf = self.pref("map_value", lambda x: x)
         self._map_values = list(map(mf, self._values))
         self._combo["values"] = self._map_values
+
+        sel_idx = self.pref("sel_idx", None)
+        if sel_idx != None:
+            print("sel_idx", sel_idx)
+            self.set_index(sel_idx)
 
         return vars
 
@@ -253,14 +268,23 @@ class TileEntryListbox(TileEntry):
         self._scrollable = enable
         return self
 
+    def set_values(self, values):
+        self._values = values
+        self._scroll_height()
+
+    def _do_map(self, values):
+        mf = self.pref("map_value", lambda x: f"{x} > {x}")
+        self._map_values = list(map(mf, values))
+        self._var.set(self._map_values)
+        self._values = values
+
     def create_element(self, frame):
 
         vars = super().create_element(frame)
 
-        mf = self.pref("map_value", lambda x: f"{x} > {x}")
-        self._map_values = list(map(mf, self._values))
+        self._do_map(self._values)
 
-        self._var.set(self._map_values)
+        print("self._scrollable", self._scrollable)
 
         if self._scrollable == True:
             self._scrollb = ttk.Scrollbar(
@@ -271,21 +295,28 @@ class TileEntryListbox(TileEntry):
             self._listb.configure(yscrollcommand=self._scrollb.set)
             return [*vars, self._scrollb]
 
+        self._listb.selection_set(0)
+
         return vars
 
     def _do_layout(self):
         super()._do_layout()
+        self._listb.pack(padx=0)
         if self._scrollable:
-            self._listb.pack(padx=0)
             self._scrollb.pack(fill="y", padx=0)
 
-    def _create_entry(self, frame):
-
+    def _scroll_height(self):
+        self.scrollbar()
         h = len(self._values)
         if h > self._auto_scrollb:
             h = self._auto_scrollb
         else:
             self.scrollbar(False)
+        return h
+
+    def _create_entry(self, frame):
+
+        h = self._scroll_height()
 
         self._listb = Listbox(
             frame, listvariable=self._var, exportselection=False, height=h
@@ -355,6 +386,8 @@ class TileFileSelect(TileEntryButton):
     def create_element(self, frame):
         vars = super().create_element(frame)
 
+        self._filetypes = self.pref("filetypes", self.file_types())
+
         path = self.pref(self.PATH, self.get_base())
         self.set_val(self.fullpath(path))
 
@@ -362,11 +395,14 @@ class TileFileSelect(TileEntryButton):
 
     def on_click(self):
 
+        print("on_click")
+
         basedir = os.path.dirname(self.get_val())
 
         file = filedialog.askopenfilename(
-            initialdir=basedir, title=self.get_caption(), filetypes=self.file_types()
+            initialdir=basedir, title=self.get_caption(), filetypes=self._filetypes
         )
+
         if file:
             self.set_val(file)
 
@@ -374,7 +410,7 @@ class TileFileSelect(TileEntryButton):
         return os.getcwdb()
 
     def file_types(self):
-        return (("xls files", "*.xls"), ("all files", "*.*"))
+        return [("all files", "*.*")]
 
     def fullpath(self, path):
         path = os.path.expanduser(path)
@@ -386,6 +422,8 @@ class TileRows(Tile):
     def create_element(self, frame):
         vars = []
         for el in self.pref("source", []):
+            if el == None:
+                continue
             el.set_parent(self.frame)
             el.layout()
             vars.append(el)
