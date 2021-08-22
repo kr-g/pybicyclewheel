@@ -130,6 +130,9 @@ t_rim_hole = TileEntry(caption="rim hole#")
 def calc():
     print("calc")
 
+    t_result_spoke_l.set_val()
+    t_result_spoke_r.set_val()
+
     hub_hole = int(t_hub_hole.get_val())
 
     hub = Hub(

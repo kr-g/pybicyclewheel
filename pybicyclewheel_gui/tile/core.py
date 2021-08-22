@@ -198,7 +198,7 @@ class TileEntry(Tile):
     def get_val(self):
         return self._var.get()
 
-    def set_val(self, val):
+    def set_val(self, val=None):
         self._var.set(val)
 
     def validate(self):
