@@ -34,7 +34,7 @@ maintain your rim and hub data in the xls sheets provided in the github repo
 
 
 call the [`simple gui`](https://github.com/kr-g/pybicyclewheel/tree/main/pybicyclewheel_gui)
-with 
+with (remark: hubs.xls, and rims.xls base dir is "~/Downloads")
 
     python3 -m pybicyclewheel_gui
     

@@ -1,3 +1,5 @@
+import os
+
 from pybicyclewheel.xls_calc import *
 from pybicyclewheel_gui import *
 
@@ -13,16 +15,19 @@ simple gui for pybicyclewheel
 
 """
 
+download_base = "~/Downloads/"
 
 ftypes = [("xls files", "*.xls"), ("all files", "*.*")]
 t_rim_file = TileFileSelect(
     caption="Rim file",
     commandtext="...",
-    path="~/repo/pybicyclewheel/rims.xls",
+    path=os.path.join(download_base, "rims.xls"),
     filetypes=ftypes,
 )
 t_hub_file = TileFileSelect(
-    caption="Hub file", path="~/repo/pybicyclewheel/hubs.xls", filetypes=ftypes
+    caption="Hub file",
+    path=os.path.join(download_base, "hubs.xls"),
+    filetypes=ftypes,
 )
 
 t_cross = TileEntryCombo(caption="Crosses", values=[3, 2, 4, 1], sel_idx=0)

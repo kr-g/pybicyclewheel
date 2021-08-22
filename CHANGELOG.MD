@@ -1,6 +1,12 @@
 
 # changelog
 
+## release v0.0.7
+
+- fix download base directory -> "~/Download"
+- 
+
+
 ## release v0.0.6
 
 - added EAN col to xls, and dataloader
