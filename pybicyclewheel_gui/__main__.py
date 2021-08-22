@@ -145,6 +145,7 @@ def calc():
 
     if rim_hole != hub_hole:
         messagebox.showerror(title="error", message="number of holes do not match")
+        return
 
     cross = int(t_cross.get_val())
     spoke = rim_hole
