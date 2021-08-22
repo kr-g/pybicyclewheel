@@ -133,39 +133,44 @@ def calc():
     t_result_spoke_l.set_val()
     t_result_spoke_r.set_val()
 
-    hub_hole = int(t_hub_hole.get_val())
+    try:
 
-    hub = Hub(
-        hub_hole,
-        diameter_l=float(t_hub_dia_l.get_val()),
-        diameter_r=float(t_hub_dia_r.get_val()),
-        distance_l=-float(t_hub_dist_l.get_val()),
-        distance_r=float(t_hub_dist_r.get_val()),
-        spoke_hole=None,
-    )
+        hub_hole = int(t_hub_hole.get_val())
 
-    rim_hole = int(t_rim_hole.get_val())
+        hub = Hub(
+            hub_hole,
+            diameter_l=float(t_hub_dia_l.get_val()),
+            diameter_r=float(t_hub_dia_r.get_val()),
+            distance_l=-float(t_hub_dist_l.get_val()),
+            distance_r=float(t_hub_dist_r.get_val()),
+            spoke_hole=None,
+        )
 
-    rim = Rim(float(t_rim_erd.get_val()))
+        rim_hole = int(t_rim_hole.get_val())
 
-    if rim_hole != hub_hole:
-        messagebox.showerror(title="error", message="number of holes do not match")
-        return
+        rim = Rim(float(t_rim_erd.get_val()))
 
-    cross = int(t_cross.get_val())
-    spoke = rim_hole
+        if rim_hole != hub_hole:
+            messagebox.showerror(title="error", message="number of holes do not match")
+            return
 
-    wheel = Wheel(hub=hub, rim=rim, cross_l=cross, cross_r=cross, spoke=None)
-    spoke_lr = wheel.spoke_lr()
+        cross = int(t_cross.get_val())
+        spoke = rim_hole
 
-    print(wheel)
+        wheel = Wheel(hub=hub, rim=rim, cross_l=cross, cross_r=cross, spoke=None)
+        spoke_lr = wheel.spoke_lr()
 
-    spoke_lr = wheel.spoke_lr()
+        print(wheel)
 
-    print(spoke_lr)
+        spoke_lr = wheel.spoke_lr()
 
-    t_result_spoke_l.set_val(spoke_lr[0])
-    t_result_spoke_r.set_val(spoke_lr[1])
+        print(spoke_lr)
+
+        t_result_spoke_l.set_val(spoke_lr[0])
+        t_result_spoke_r.set_val(spoke_lr[1])
+
+    except Exception as ex:
+        messagebox.showerror(title="error", message="check input data, and log")
 
 
 t_result_spoke_l = TileEntry(
@@ -234,7 +239,7 @@ main = TileRows(
         t_reload,
         t_tab,
         TileLabelClick(
-            caption="github: https://github.com/kr-g/pybicyclewheel", on_click=openweb
+            caption="homepage: https://github.com/kr-g/pybicyclewheel", on_click=openweb
         ),
     ]
 )
