@@ -234,8 +234,11 @@ mainframe = Tile(Tile.tk)
 t_close = TileLabelButton(caption="close app", command=mainframe.quit)
 
 
+_homepage = "https://github.com/kr-g/pybicyclewheel"
+
+
 def openweb():
-    webbrowser.open("https://github.com/kr-g/pybicyclewheel")
+    webbrowser.open(_homepage)
 
 
 main = TileRows(
@@ -243,9 +246,7 @@ main = TileRows(
         t_close,
         t_reload,
         t_tab,
-        TileLabelClick(
-            caption="homepage: https://github.com/kr-g/pybicyclewheel", on_click=openweb
-        ),
+        TileLabelClick(caption=f"homepage: {_homepage}", on_click=openweb),
     ]
 )
 
