@@ -28,12 +28,27 @@ to determine the length of a spoke using [`numpy`](https://en.wikipedia.org/wiki
 # how to use
 
 maintain your rim and hub data in the xls sheets provided in the github repo
-and use it along with [`sample.py`](https://github.com/kr-g/pybicyclewheel/blob/main/sample.py).
+
+- [hub data xls](https://github.com/kr-g/pybicyclewheel/blob/main/hubs.xls)
+- [rim data xls](https://github.com/kr-g/pybicyclewheel/blob/main/rims.xls)
+
+
+call the [`simple gui`](https://github.com/kr-g/pybicyclewheel/tree/main/pybicyclewheel_gui)
+with 
+
+    python3 -m pybicyclewheel_gui
+    
+    
+or use it along with [`sample.py`](https://github.com/kr-g/pybicyclewheel/blob/main/sample.py).
+
 
 alternatively explore [`xls_calc.py`](https://github.com/kr-g/pybicyclewheel/blob/main/pybicyclewheel/xls_calc.py)
 and use the classes directly (less convinient).
 
-probably a better user interface will be provided later ... (if i have time i will do)
+
+probably a better user interface (then the simple one) will be provided later ... (if i have time i will do)
+
+
 
 ## structure of the xls - measurement factors
 

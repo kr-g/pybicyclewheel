@@ -49,6 +49,7 @@ setuptools.setup(
         "numpy",
         "pandas",
         "xlrd",
+        "tk",
     ],
     classifiers=[
         "Development Status :: 3 - Alpha",

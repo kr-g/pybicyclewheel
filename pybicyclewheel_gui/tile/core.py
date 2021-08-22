@@ -3,7 +3,7 @@ import os
 
 from tkinter import *
 
-# from tkinter import Tk, ttk, filedialog
+from tkinter import Tk, ttk, filedialog
 
 
 class TkMixin(object):
