@@ -5,6 +5,13 @@
 
 - added EAN col to xls, and dataloader
 - added simple rapid prototyping gui framework "pyTile"
+- added first simple ui (refer also to backlog)
+- 
+
+
+# Backlog
+
+- rework ui -> format pack layout into grid
 - 
 
 
