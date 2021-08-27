@@ -317,7 +317,8 @@ class TileEntryListbox(TileEntry):
 
     def _do_layout(self):
         super()._do_layout()
-        self._listb.pack(padx=0)
+        self._listb_wg.pack(padx=0, pady=0)
+        # self._listb.pack(padx=0)
         if self._scrollable:
             self._scrollb.pack(fill="y", padx=0)
 
@@ -334,11 +335,23 @@ class TileEntryListbox(TileEntry):
 
         h = self._scroll_height()
 
+        self._listb_wg = ttk.Frame(frame)
+
         self._listb = Listbox(
-            frame, listvariable=self._var, exportselection=False, height=h
+            self._listb_wg, listvariable=self._var, exportselection=False, height=h
         )
+        self._listb.pack()
+
+        self._scrollb_x = ttk.Scrollbar(
+            self._listb_wg,
+            orient=HORIZONTAL,
+            command=self._listb.xview,
+        )
+        self._listb.configure(xscrollcommand=self._scrollb_x.set)
+        self._scrollb_x.pack(fill="both", padx=0)
+
         self._listb.bind("<<ListboxSelect>>", self._handler)
-        return self._listb
+        return self._listb_wg
 
     def _handler(self, event):
         self.pref("on_select", self.on_select)()

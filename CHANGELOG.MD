@@ -1,6 +1,13 @@
 
 # changelog
 
+
+## next release v0.0.8
+
+- horizontal scrollbar in listbox tile
+- 
+
+
 ## release v0.0.7
 
 - fix download base directory -> "~/Download"
