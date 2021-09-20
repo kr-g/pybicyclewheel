@@ -62,6 +62,7 @@ browse the manufacturer web site and search for specification
 - shimano [https://productinfo.shimano.com/#/spec](https://productinfo.shimano.com/#/spec)
 - ...
 
+or search for the product detail page
 
 
 
