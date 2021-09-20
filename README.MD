@@ -64,6 +64,8 @@ browse the manufacturer web site and search for specification
 
 or search for the product detail page
 
+if none of the above is available measure the component (not recommended)
+
 
 
 # What's new ?
