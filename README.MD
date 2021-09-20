@@ -50,12 +50,12 @@ probably a better user interface (then the simple one) will be provided later ..
 
 
 
-## structure of the xls - measurement factors
+## structure of the xls - sizing data
 
 todo...
 
 
-## where to find measurement data 
+## where to find sizing data 
 
 browse the manufacturer web site and search for specification
 
