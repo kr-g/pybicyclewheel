@@ -55,6 +55,16 @@ probably a better user interface (then the simple one) will be provided later ..
 todo...
 
 
+## where to find measurement data 
+
+browse the manufacturer web site and search for specification
+
+- [shimano](https://productinfo.shimano.com/#/spec)
+- ...
+
+
+
+
 # What's new ?
 
 Check
