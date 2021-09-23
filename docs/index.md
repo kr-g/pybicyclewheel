@@ -6,7 +6,8 @@ created 23-09-2021
 
 this page is under construction.
 
-browse github source repo to explore the code.
+browse git repo [https://github.com/kr-g/pybicyclewheel](https://github.com/kr-g/pybicyclewheel) to explore the code.
+
 
 ## todo documentation
 
