@@ -35,3 +35,9 @@ wheel truing stand
 <img src="./media/wheeltruingstandworkbench.jpg" />
 
 
+
+### legal information
+
+This page is hosted on [github pages](https://pages.github.com/).
+Read more: [Privacy information](https://help.github.com/en/articles/github-privacy-statement)
+  
