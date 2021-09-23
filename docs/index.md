@@ -32,5 +32,6 @@ github: [https://github.com/kr-g/pybicyclewheel](https://github.com/kr-g/pybicyc
 
 wheel truing stand
 
+<img src="./media/wheeltruingstandworkbench.jpg" />
 
 
