@@ -4,7 +4,10 @@
 
 ## next release v0.0.9 - ???
 
--
+- added two new colums to hub xls 
+  - "Flange Distance"
+  - "Flange Offset"
+- 
 
  
 ## release v0.0.8 - 20220515

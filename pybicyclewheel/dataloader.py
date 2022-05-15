@@ -24,9 +24,12 @@ class DataLoader(object):
         return self.data.iloc[[idx]]
 
     def get_val(self, row, nam):
-        cell = row[nam.lower()]
-        val = cell.values[0]
-        return val if pd.notna(val) else None
+        try:
+            cell = row[nam.lower()]
+            val = cell.values[0]
+            return val if pd.notna(val) else None
+        except:
+            print(f"ERROR. add missing colum to your xls sheet: {nam}")
 
     def get_cols(self, row, cols):
         result = NS()
@@ -70,6 +73,8 @@ class HubDataLoader(DataLoader):
                     "Flange Diameter Right",
                     "Flange Distance Left",
                     "Flange Distance Right",
+                    "Flange Distance",
+                    "Flange Offset",
                 ]
             ),
         )

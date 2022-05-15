@@ -87,7 +87,7 @@ def reload_hub():
     hubs = []
     for i in range(0, len(hdl.data)):
         h = hdl.get_dims(i)
-        # print("hub:",h)
+        print("hub:", h)
         hubs.append(h)
 
     hub_list.set_values(hubs)
