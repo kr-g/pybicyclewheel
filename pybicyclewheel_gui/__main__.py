@@ -1,5 +1,7 @@
 import os
 
+from pybicyclewheel import VERSION
+
 from pybicyclewheel.xls_calc import *
 from pybicyclewheel_gui import *
 
@@ -92,8 +94,12 @@ def reload_hub():
     hub_list.layout()
 
 
-t_reload_rim = TileLabelButton(caption="reload rim data file", command=reload_rim)
-t_reload_hub = TileLabelButton(caption="reload hub data file", command=reload_hub)
+t_reload_rim = TileLabelButton(
+    caption="rim data file", commandtext="reload", command=reload_rim
+)
+t_reload_hub = TileLabelButton(
+    caption="hub data file", commandtext="reload", command=reload_hub
+)
 
 
 def hub_data():
@@ -119,7 +125,9 @@ def reload_all():
     reload_hub()
 
 
-t_reload = TileLabelButton(caption="reload all data files", command=reload_all)
+t_reload = TileLabelButton(
+    caption="data files", commandtext="reload all", command=reload_all
+)
 
 
 t_hub_dia_l = TileEntry(caption="hub diameter left")
@@ -130,6 +138,41 @@ t_hub_hole = TileEntry(caption="hub hole#")
 
 t_rim_erd = TileEntry(caption="rim erd")
 t_rim_hole = TileEntry(caption="rim hole#")
+
+t_hub_dist = TileEntry(caption="hub dist")
+t_hub_dist_offset = TileEntry(caption="hub dist offset")
+
+t_hub_result_l = TileEntry(
+    caption="hub dist left",
+)
+t_hub_result_r = TileEntry(
+    caption="hub dist right",
+)
+
+
+def calc_flange():
+    dist = float(t_hub_dist.get_val())
+    offset = float(t_hub_dist_offset.get_val())
+
+    center = dist / 2.0
+    right = center - offset
+    left = dist - right
+
+    t_hub_result_l.set_val(left)
+    t_hub_result_r.set_val(right)
+
+
+def copy_flange():
+    t_hub_dist_l.set_val(t_hub_result_l.get_val())
+    t_hub_dist_r.set_val(t_hub_result_r.get_val())
+
+
+t_flange_calc = TileLabelButton(
+    caption="flange dist", commandtext="calc", command=calc_flange
+)
+t_flange_copy = TileLabelButton(
+    caption="copy to hub data tab", commandtext="copy", command=copy_flange
+)
 
 
 def calc():
@@ -224,6 +267,22 @@ t_tab = TileTab(
                 ]
             ),
         ),
+        (
+            "offset tool",
+            TileRows(
+                source=[
+                    TileLabel(
+                        caption="calc hub distance from absolute distance + offset"
+                    ),
+                    t_hub_dist,
+                    t_hub_dist_offset,
+                    t_flange_calc,
+                    t_hub_result_l,
+                    t_hub_result_r,
+                    t_flange_copy,
+                ]
+            ),
+        ),
     ]
 )
 
@@ -231,7 +290,9 @@ t_tab = TileTab(
 mainframe = Tile(Tile.tk)
 # mainframe.title("pyBicycleWheel")
 
-t_close = TileLabelButton(caption="close app", command=mainframe.quit)
+t_close = TileLabelButton(
+    caption="close app", commandtext="bye", command=mainframe.quit
+)
 
 
 _homepage = "https://github.com/kr-g/pybicyclewheel"
@@ -246,7 +307,7 @@ main = TileRows(
         t_close,
         t_reload,
         t_tab,
-        TileLabelClick(caption=f"homepage: {_homepage}", on_click=openweb),
+        TileLabelClick(caption=f"homepage: {_homepage} - {VERSION}", on_click=openweb),
     ]
 )
 

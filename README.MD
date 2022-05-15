@@ -1,7 +1,7 @@
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-
+ 
 # pybicyclewheel 
 
 `pybicyclewheel` calulates the required spoke length for bicycle wheels.
@@ -76,6 +76,9 @@ Check
 [`CHANGELOG`](https://github.com/kr-g/pybicyclewheel/blob/main/CHANGELOG.MD)
 for latest ongoing, or upcoming news
 
+read [`BACKLOG`](https://github.com/kr-g/pybicyclewheel/blob/main/BACKLOG.MD)
+for latest, or upcoming news.
+
 
 # Platform
 
@@ -87,7 +90,7 @@ Tested on Python3, and Linux.
 alpha state.
 the API or logical call flow might change without prior notice.
 
-read [`CHANGELOG`](https://github.com/kr-g/pybicyclewheel/blob/main/CHANGELOG.MD)
+read [`BACKLOG`](https://github.com/kr-g/pybicyclewheel/blob/main/BACKLOG.MD)
 for latest, or upcoming news.
 
 

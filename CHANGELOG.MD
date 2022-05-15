@@ -2,9 +2,15 @@
 # changelog
 
 
-## next release v0.0.8
+## next release v0.0.9 - ???
+
+-
+
+ 
+## release v0.0.8 - 20220515
 
 - horizontal scrollbar in listbox tile
+- offset calculation tool for calculate left and right hub distance from absolute distance and offset
 - 
 
 
@@ -19,15 +25,6 @@
 - added EAN col to xls, and dataloader
 - added simple rapid prototyping gui framework "pyTile"
 - added first simple ui (refer also to backlog)
-- 
-
-
-# Backlog
-
-- rework ui -> format pack layout into grid
-- add to ui
-  - spoke diameter
-  - spoke hole diameter
 - 
 
 
