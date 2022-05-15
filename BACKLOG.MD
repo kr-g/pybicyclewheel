@@ -5,6 +5,7 @@
 - add to ui
   - spoke diameter
   - spoke hole diameter
+- clean up code (flake8 errors)
 - 
 
 
